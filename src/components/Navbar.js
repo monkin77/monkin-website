@@ -1,6 +1,7 @@
-import { AppBar, Button, IconButton, Toolbar, Typography, Link } from "@material-ui/core";
+import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Menu} from "@material-ui/icons";
+import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
     linkStyle: {
       textDecoration: "none",
       marginRight: theme.spacing(5),
+      color: 'gray',
+    },
+    activeLinkStyle: {
+      textDecoration: "none",
+      marginRight: theme.spacing(5),
+      color: 'white',
     }
   }));
 
@@ -30,15 +37,15 @@ export default function Navbar() {
                         <Menu />
                     </IconButton>
                     <Typography variant="h6" className={classes.navbarContainer}>
-                      <Link to="/" variant="h6" color="inherit" className={classes.linkStyle}>
+                      <NavLink exact to="/" variant="h6" className={classes.linkStyle} activeClassName={classes.activeLinkStyle}>
                             About me
-                      </Link>
-                      <Link to="/" variant="h6" color="inherit" className={classes.linkStyle}>
-                            Activities
-                      </Link>
-                      <Link to="/" variant="h6" color="inherit" className={classes.linkStyle}>
+                      </NavLink>
+                      <NavLink exact to="/resume" variant="h6" className={classes.linkStyle} activeClassName={classes.activeLinkStyle}>
+                            Resume
+                      </NavLink>
+                      <NavLink exact to="/projects" variant="h6" className={classes.linkStyle} activeClassName={classes.activeLinkStyle}>
                             Projects
-                      </Link>
+                      </NavLink>
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
