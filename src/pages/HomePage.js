@@ -1,21 +1,27 @@
-import { Avatar, Card, Grid, makeStyles, Typography } from "@material-ui/core";
-
-const avatarSrc = "../media/photo1.jpeg";
+import { Grid, makeStyles } from "@material-ui/core";
+import logo from "../media/photo1.jpeg";
+import SectionBox from "../components/HomePage/SectionBox";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flex: 1,
-    marginTop: theme.spacing(5),
+    paddingTop: theme.spacing(5),
+    backgroundColor: "ghostWhite",
   },
   gridCard: {
     display: "flex",
     justifyContent: "flex-start",
-    alignItems: "center",
-    marginLeft: theme.spacing(3),
+    alignItems: "flex-start",
+    marginLeft: theme.spacing(3), 
+    height: "50vh",
   },
   spaceLeft: {
     marginLeft: theme.spacing(2),
+  },
+  logo: {
+    width: theme.spacing(15),
+    height: theme.spacing(15),
   }
 }));
 
@@ -24,16 +30,15 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
-      <Grid container direction="row" justify="center" alignItems="center" spacing={1}>
-        <Grid item xs={12} md={6}>
-          <Card className={classes.gridCard}>
-            <Avatar alt="João Gil" src={avatarSrc} />
-            <Typography className={classes.spaceLeft}>Hello</Typography>
-          </Card>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography>Hello</Typography>
-        </Grid>
+      <Grid container direction="row" justify="center" alignItems="flex-start" spacing={10}>
+        <SectionBox logo={logo} />
+
+        <SectionBox />
+
+        <SectionBox />
+
+        <SectionBox />
+
       </Grid>
     </div>
   );
