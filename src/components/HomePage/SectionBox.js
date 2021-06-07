@@ -37,10 +37,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flex: 3,
     height: "100%",
+    flexDirection: "column",
   }
 }));
 
-const SectionBox = ({logo}) => {
+const SectionBox = ({logo, title, bulletPoints}) => {
   const classes = useStyles();
 
   return (
@@ -53,7 +54,14 @@ const SectionBox = ({logo}) => {
               </div>
               }
               <div className={classes.contentContainer}>
-                <Typography className={classes.spaceLeft}>Hello</Typography>
+                <Typography className={classes.spaceLeft}> {title} </Typography>
+                <ul>
+                  {bulletPoints?.map((bulletPoint, idx) => {
+                    return (
+                      <li style={{padding: 3}}>{bulletPoint}</li>
+                    )
+                  } )}
+                </ul>
               </div>
             </div>
  
